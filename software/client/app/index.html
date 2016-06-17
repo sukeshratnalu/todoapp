@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+
+  <base href="/"/>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+
+
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <!--bootstrap links-->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/app.css">
+
+  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+
+
+
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<nav class="footNav navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <h1>TODOApp</h1>
+      <p>manage your task</p>
+
+    </div>
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+        <li><a href="English">English</a></li>
+        <li><a href="Spanish">Spanish</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div ng-view></div>
+
+<footer class="container-fluid text-center">
+
+  <p>Powered by semanticbits</p>
+</footer>
+
+<script src="modules/todo/app.modules.js"></script>
+<script src="modules/todo/app.config.js"></script>
+<script src="modules/todo/app.run.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!---->
+
+
+
+<script src="modules/todo/dashboard/dashboard.controller.js"></script>
+<script src="modules/todo/dashboard/dashboard.factory.js"></script>
+
+
+
+<script src="components/version/version.js"></script>
+<script src="components/version/version-directive.js"></script>
+<script src="components/version/interpolate-filter.js"></script>
+
+</body>
+</html>
