@@ -1,51 +1,63 @@
-<div class="text-center body">
+<div class="text-center">
 
     <div class="row content">
-        <div class="col-sm-2 sidenav"></div>
+        <!--
+                <div class="col-sm-2 sidenav"></div>
+        -->
 
-        <div class="col-sm-8 sidenav">
-            <div class="container-fluid bg-3 text-center">
-                <h1>DashBoard Page</h1><br>
+        <div class="col-sm-12 sidenav">
+            <div class="container-fluid  text-center">
 
-                <div class="row">
-                    <div class="col-sm-3">
+                <div class="row body_heading">
+                    <div class="col-sm-4 select_status">
+                        <select class="selectpicker" title="STATUS">
+                            <option>Statuses</option>
+                            <option>Ketchup</option>
+                            <option>Relish</option>
+                        </select>
 
                     </div>
-                    <div class="col-sm-3">
+
+                    <div class="col-sm-4">
 
                     </div>
-                    <div class="col-sm-3">
-
-                    </div>
-                    <div class="col-sm-3">
-
+                    <div class="col-sm-4 button_newTask">
+                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Add New Task</button>
                     </div>
                 </div>
             </div><br>
 
-            <div class="container-fluid bg-3 text-center">
+            <div class="container-fluid" >
                 <div class="row">
-                    <div class="col-sm-3">
+                    <div class="col-sm-4 status" ng-repeat="task in tasks">
+                        <div class="row">
+                            <div class="col-sm-8 text-left title_div">
+                                <h4>Title</h4>
+                            </div>
+                            <div class="col-sm-4 checkbox_button_div">
 
+                                <a href="#" data-toggle="tooltip" title="Delete"><i class="fa fa-trash fa-2x titleTrash"></i></a>
+                                <a href="#" data-toggle="tooltip" title="CheckBox">
+                                    <i class="fa fa-check-square fa-2x" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
 
-                    </div>
-                    <div class="col-sm-3">
+                        <div class="col-sm-8 text-center task_description_div">
+                            <dl class="dl-horizontal">
+                                <dt>Description</dt>
+                                <dd>{{task.Description}}</dd>
+                                <dt>Status</dt>
+                                <dd>{{task.Status}}</dd>
+                                <dt>Start Date</dt>
+                                <dd>{{task.StartDate}}</dd>
+                                <dt>End Date</dt>
+                                <dd>{{task.EndDate}}</dd>
 
-
-                    </div>
-                    <div class="col-sm-3">
-
-
-                    </div>
-                    <div class="col-sm-3">
-
-
-                    </div>
+                            </dl>
+                        </div>
+                   </div>
                 </div>
             </div>
         </div>
-
-
-        <div class="col-sm-2 sidenav"></div>
     </div>
 </div>

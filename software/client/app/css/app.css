@@ -2,6 +2,9 @@
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
+    background-color: #555;
+    color: white;
+
 }
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -16,13 +19,17 @@
 
 /* Set black background color, white text and some padding */
 footer {
-    position: fixed;
-    height: 90px;
+    height: 50px;
     bottom: 0;
     width: 100%;
     background-color: #555;
     color: white;
-    padding: 40px;
+    padding: 20px;
+    border: #111111;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index:1;
 }
 
 /* On small screens, set height to 'auto' for sidenav and grid */
@@ -34,8 +41,76 @@ footer {
     .row.content {height:auto;}
 }
 .heading{
-    font-size: 400%;
+    font-size: 350%;
 }
 .managecontent{
-    padding-left: 30%;
+    padding-left: 45%;
+}
+#myNavbar{
+    //padding-right: 50%;
+    padding-top: 10px;
+}
+.button_newTask{
+    padding-left: 180px;
+}
+.select_status{
+    padding-right:180px ;
+}
+.body_heading{
+    border: outset;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    height: 50px;
+    margin: 20px;
+}
+.body_status{
+    height: 180px;
+    margin: 5px;
+
+
+}
+.status{
+    border: solid;
+    height: 130px;
+    margin: 20px;
+    width: 350px;
+    margin-left: 50px;
+    padding-left: 15px;
+}
+.title_div{
+    border: solid;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+   // margin-left: 10px;
+}
+/*body {
+    position: relative;
+    overflow: hidden
+}*/
+html {
+    height: 100%;
+}
+html body {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+html body .container-fluid.body-content {
+    position: absolute;
+    top: 50px;
+    bottom: 30px;
+    right: 0;
+    left: 0;
+    overflow: auto;
+}
+.checkbox_button_div {
+    padding-top: 10px;
+    padding-left: 20px;
+}
+.task_description_div {
+    padding: 0px;
+    margin-right: 50px;
 }

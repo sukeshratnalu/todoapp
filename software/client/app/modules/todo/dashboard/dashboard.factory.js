@@ -1,3 +1,49 @@
 /**
  * Created by semanticbits on 17/6/16.
  */
+angular.module('todoApp')
+    .factory('dashboardService',function(){
+        var tasks=[
+            {
+                Description:"value1",
+                Status:"value1",
+                StartDate:"value1",
+                EndDate:"value1"
+            },
+            {
+                Description:"value2",
+                Status:"value2",
+                StartDate:"value2",
+                EndDate:"value2"
+            },
+            {
+                Description:"value3",
+                Status:"value3",
+                StartDate:"value3",
+                EndDate:"value3"
+            },
+            {
+                Description:"value1",
+                Status:"value1",
+                StartDate:"value1",
+                EndDate:"value1"
+            },
+            {
+                Description:"value2",
+                Status:"value2",
+                StartDate:"value2",
+                EndDate:"value2"
+            },
+            {
+                Description:"value3",
+                Status:"value3",
+                StartDate:"value3",
+                EndDate:"value3"
+            }
+        ];
+        return{
+            getTasks:function(){
+                return tasks;
+            }
+        };
+    });

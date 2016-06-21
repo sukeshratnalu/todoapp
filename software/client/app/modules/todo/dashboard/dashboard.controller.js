@@ -4,7 +4,9 @@
 (function(){
     angular
         .module('todoApp')
-        .controller('dashboardController',function(){
+        .controller('dashboardController',function($scope,dashboardService){
+
+                $scope.tasks=dashboardService.getTasks();
 
 
         })
