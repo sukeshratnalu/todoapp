@@ -9,6 +9,7 @@
   <!--bootstrap links-->
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.min.css">
 
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 
@@ -18,13 +19,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DashBoard Page</title>
-  <script>
-    $(document).ready(function(){
-      $('[data-toggle="Delete"]').tooltip();
-      $('[data-toggle="CheckBox"]').tooltip();
-    });
-  </script>
-
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50" >
 
@@ -35,10 +29,10 @@
       <p class="managecontent">manage your task</p>
     </div>
 
-    <div class="collapse navbar-collapse" id="myNavbar">
+    <div class="collapse navbar-collapse" id="myNavbar" ng-controller="appController as ac">
       <ul class="list-inline navbar-right">
-        <li><a ui-sref="#">English</a></li>
-        <li><a ui-sref="#">Spanish</a></li>
+        <li><a ng-click="ac.changeLanguage('en')" ng-bind="'English' | translate"></a></li>
+        <li><a ng-click="ac.changeLanguage('es')" ng-bind="'Spanish' | translate"></a></li>
       </ul>
     </div>
   </div>
@@ -58,9 +52,33 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="modules/todo/dashboard/dashboard.controller.js"></script>
+<script src="modules/todo/dashboard/app.controller.js"></script>
 <script src="modules/todo/dashboard/dashboard.factory.js"></script>
 <script src="components/version/version.js"></script>
 <script src="components/version/version-directive.js"></script>
 <script src="components/version/interpolate-filter.js"></script>
+<script src="bower_components/angular-translate/angular-translate.min.js"></script>
+<script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+<script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.min.js"></script>
+<script src="bower_components/i18n/i18n.js"></script>
+<script src="bower_components/angular-ui-select/dist/select.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-sanitize.js"></script>
+
+
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
+<script>
+  document.createElement('ui-select');
+  document.createElement('ui-select-match');
+  document.createElement('ui-select-choices');
+</script>
+
+<script>
+  jQuery(document).ready(function(){
+    jQuery('[data-toggle="Delete"]').tooltip();
+    jQuery('[data-toggle="CheckBox"]').tooltip();
+  });
+</script>
+
 </body>
 </html>

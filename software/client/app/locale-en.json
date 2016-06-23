@@ -1,0 +1,12 @@
+{
+  "Description": "Description",
+  "Status": "Status",
+  "StartDate": "Start Date",
+  "EndDate": "End Date",
+  "Priority":"Priority",
+  "English":"English",
+  "Spanish":"Spanish",
+  "Manage_Your_Tasks":"Manage Your Tasks",
+  "Add_New_task":"Add New Task"
+
+}

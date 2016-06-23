@@ -9,16 +9,40 @@
             <div class="container-fluid  text-center">
 
                 <div class="row body_heading">
-                    <div class="col-sm-4 select_status">
-                        <select class="selectpicker" title="STATUS">
+                    <div class="col-sm-4 ">
+                        <!--<select class="selectpicker" title="STATUS">
                             <option>Statuses</option>
-                            <option>Ketchup</option>
-                            <option>Relish</option>
-                        </select>
+                            <option>OPENED</option>
+                            <option>INPROGRESS</option>
+                            <option>INVALID</option>
+                            <option>COMPLETED</option>
+                        </select>-->
+
+
+
+                        <ui-select ng-model="selected.value">
+
+                            <ui-select-match placeholder="Select status...">
+                                <span ng-bind="$select.selected.name"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.name">
+                                <span ng-bind="item.name"></span>
+                            </ui-select-choices>
+                        </ui-select>
+
 
                     </div>
 
                     <div class="col-sm-4">
+
+                        <ui-select  ng-model="selectedPriority.value">
+                            <ui-select-match placeholder="Select priority...">
+                                <span ng-bind="$select.selected.name"></span>
+                            </ui-select-match>
+                            <ui-select-choices repeat="priority in (priorityList | filter: $select.search) track by priority.id">
+                                <span ng-bind="priority.name"></span>
+                            </ui-select-choices>
+                        </ui-select>
 
                     </div>
                     <div class="col-sm-4 button_newTask">
@@ -27,12 +51,13 @@
                 </div>
             </div><br>
 
+
             <div class="container-fluid" >
                 <div class="row">
-                    <div class="col-sm-4 status" ng-repeat="task in tasks">
+                    <div class="col-sm-4 status" ng-repeat="task in tasks | filter:selected.value.name">
                         <div class="row">
                             <div class="col-sm-8 text-left title_div">
-                                <h4>Title</h4>
+                                <h4>{{task.name}}</h4>
                             </div>
                             <div class="col-sm-4 checkbox_button_div">
 
@@ -42,16 +67,20 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-8 text-center task_description_div">
+                        <div class="col-sm-12  task_description_div">
+
+
                             <dl class="dl-horizontal">
-                                <dt>Description</dt>
-                                <dd>{{task.Description}}</dd>
-                                <dt>Status</dt>
-                                <dd>{{task.Status}}</dd>
-                                <dt>Start Date</dt>
-                                <dd>{{task.StartDate}}</dd>
-                                <dt>End Date</dt>
-                                <dd>{{task.EndDate}}</dd>
+                                <dt ng-bind="'Description' | translate"></dt>
+                                <dd>{{task.description}}</dd>
+                                <dt ng-bind="'Status' | translate"></dt>
+                                <dd>{{task.status}}</dd>
+                                <dt ng-bind="'StartDate' | translate"></dt>
+                                <dd>{{task.start-date}}</dd>
+                                <dt ng-bind="'EndDate' | translate" ></dt>
+                                <dd>{{task.end-date}}</dd>
+                                <dt ng-bind="'Priority' | translate" ></dt>
+                                <dd>{{task.priority}}</dd>
 
                             </dl>
                         </div>

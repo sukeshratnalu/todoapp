@@ -8,7 +8,7 @@
 }
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-.row.content {height: 500px}
+.row.content {height:auto}
 
 /* Set gray background color and 100% height */
 .sidenav {
@@ -20,17 +20,18 @@
 /* Set black background color, white text and some padding */
 footer {
     height: 50px;
-    bottom: 0;
+    /bottom: 0;
     width: 100%;
     background-color: #555;
     color: white;
     padding: 20px;
     border: #111111;
-    position: absolute;
-    left: 0;
-    right: 0;
-    z-index:1;
+   /* position: absolute;
+    //left: 0;
+    //right: 0;
+    //z-index:1;*/
 }
+
 
 /* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and (max-width: 767px) {
@@ -72,7 +73,7 @@ footer {
 }
 .status{
     border: solid;
-    height: 130px;
+    height: 200px;
     margin: 20px;
     width: 350px;
     margin-left: 50px;
@@ -85,10 +86,14 @@ footer {
     border-right: none;
    // margin-left: 10px;
 }
+.task_description_div{
+    padding: 20px;
+}
 /*body {
     position: relative;
     overflow: hidden
 }*/
+/*
 html {
     height: 100%;
 }
@@ -99,13 +104,14 @@ html body {
     flex-direction: column;
 }
 html body .container-fluid.body-content {
-    position: absolute;
+    //position: absolute;
     top: 50px;
     bottom: 30px;
     right: 0;
     left: 0;
     overflow: auto;
 }
+*/
 .checkbox_button_div {
     padding-top: 10px;
     padding-left: 20px;
