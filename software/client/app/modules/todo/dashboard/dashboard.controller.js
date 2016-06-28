@@ -44,10 +44,6 @@
 
         ];
 
-        //dc.selected = { value: $scope.itemArray[null] };
-
-
-
 
         function filterTask(){
             dc.tasks =[];
