@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html ng-app="todoApp">
+<!--[if lt IE 7]> <html lang="en" ng-app="todoApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html lang="en" ng-app="todoApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html lang="en" ng-app="todoApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="todoApp" class="no-js"> <!--<![endif]-->
+
 <head>
 
   <base href="/"/>
@@ -10,6 +14,7 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.min.css">
+  <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
 
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 
@@ -22,7 +27,7 @@
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50" >
 
-<nav class="footNav navbar navbar-default">
+<nav class=" navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <h1 class="heading"><b>TODOApp</b></h1>
@@ -30,10 +35,10 @@
     </div>
 
     <div class="collapse navbar-collapse" id="myNavbar" ng-controller="appController as ac">
-      <ul class="list-inline navbar-right">
-        <li><a ng-click="ac.changeLanguage('en')" ng-bind="'English' | translate"></a></li>
-        <li><a ng-click="ac.changeLanguage('es')" ng-bind="'Spanish' | translate"></a></li>
-      </ul>
+      <div class="list-inline navbar-right">
+        <label><a ng-click="ac.changeLanguage('en')" ng-bind="'English' | translate"></a></label> |
+        <label><a ng-click="ac.changeLanguage('es')" ng-bind="'Spanish' | translate"></a></li></label>
+      </div>
     </div>
   </div>
 </nav>
@@ -41,19 +46,13 @@
 <div ui-view></div>
 
 <footer class="container-fluid text-right">
-  <p>Powered by semanticbits</p>
+  <p>Powered by SemanticBits</p>
 </footer>
 
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script src="modules/todo/app.modules.js"></script>
-<script src="modules/todo/app.config.js"></script>
-<script src="modules/todo/app.run.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-<script src="modules/todo/dashboard/dashboard.controller.js"></script>
-<script src="modules/todo/dashboard/app.controller.js"></script>
-<script src="modules/todo/dashboard/dashboard.factory.js"></script>
+<script src="bower_components/bootstrap-css/js/bootstrap.min.js"></script>
 <script src="components/version/version.js"></script>
 <script src="components/version/version-directive.js"></script>
 <script src="components/version/interpolate-filter.js"></script>
@@ -63,22 +62,24 @@
 <script src="bower_components/i18n/i18n.js"></script>
 <script src="bower_components/angular-ui-select/dist/select.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-sanitize.js"></script>
-
-
-
 <script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
-<script>
-  document.createElement('ui-select');
-  document.createElement('ui-select-match');
-  document.createElement('ui-select-choices');
-</script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="bower_components/Chart.js/Chart.js"></script>
+<script src="bower_components/angular-chart.js/angular-chart.js"></script>
+<script src="modules/todo/app.modules.js"></script>
+<script src="modules/todo/app.config.js"></script>
+<script src="modules/todo/app.run.js"></script>
+<script src="modules/todo/dashboard/dashboard.controller.js"></script>
+<script src="modules/todo/commons/app.controller.js"></script>
+<script src="modules/todo/dashboard/dashboard.factory.js"></script>
+<script src="modules/todo/chart/chart.controller.js"></script>
 
-<script>
-  jQuery(document).ready(function(){
-    jQuery('[data-toggle="Delete"]').tooltip();
-    jQuery('[data-toggle="CheckBox"]').tooltip();
-  });
-</script>
+
+
+
+
+
 
 </body>
 </html>

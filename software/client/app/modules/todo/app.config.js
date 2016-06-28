@@ -6,20 +6,27 @@ angular.module('todoApp')
 
     .config(function($stateProvider,$urlRouterProvider,$locationProvider,$translateProvider, $translateStaticFilesLoaderProvider){
 
-            $urlRouterProvider.otherwise('/dashboard');
+        $urlRouterProvider.otherwise('/');
 
-            $stateProvider
-                .state('dashboard',{
-                        url:'/dashboard',
-                        templateUrl: 'partials/dashboard.html',
-                        controller: 'dashboardController'
-                });
-            $locationProvider.html5Mode(true);
+        $stateProvider
+            .state('dashboard',{
+                url:'/',
+                templateUrl: 'partials/dashboard.html',
+                controller: 'dashboardController',
+                controllerAs: 'dc'
+            }).
+        state('chart', {
+            url: "/chart",
+            templateUrl: "partials/chart.html",
+            controller: 'chartController',
+            controllerAs: 'ch'
+        });
+        $locationProvider.html5Mode(true);
 
-           $translateProvider.useStaticFilesLoader({
+        $translateProvider.useStaticFilesLoader({
             prefix: 'locale-',
             suffix: '.json'
-           });
+        });
 
         $translateProvider.preferredLanguage('en');
         $translateProvider.useSanitizeValueStrategy('sanitizeParameters');

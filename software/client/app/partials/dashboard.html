@@ -1,92 +1,105 @@
-<div class="text-center">
+<div class=" container-fluid">
 
     <div class="row content">
-        <!--
-                <div class="col-sm-2 sidenav"></div>
-        -->
 
-        <div class="col-sm-12 sidenav">
-            <div class="container-fluid  text-center">
+        <div class="row text-center body_heading">
 
-                <div class="row body_heading">
-                    <div class="col-sm-4 ">
-                        <!--<select class="selectpicker" title="STATUS">
-                            <option>Statuses</option>
-                            <option>OPENED</option>
-                            <option>INPROGRESS</option>
-                            <option>INVALID</option>
-                            <option>COMPLETED</option>
-                        </select>-->
+            <div class="col-sm-3 ">
+
+                <ui-select ng-model="dc.selectedStatus.value" ng-change="dc.filterTask()">
+
+                    <ui-select-match allow-clear="true" placeholder="Select status...">
+                        <span ng-bind="$select.selected.name"></span>
+                    </ui-select-match>
+                    <ui-select-choices repeat="item in (statusList | filter: $select.search) track by item.name">
+                        <span ng-bind="item.name"></span>
+                    </ui-select-choices>
+                </ui-select>
+
+            </div>
+
+            <div class="col-sm-3">
+
+                <ui-select  multiple ng-model="dc.selectedPriority" theme="bootstrap" ng-change="dc.filterTask()">
+
+                    <ui-select-match placeholder="Select priority...">
+                        {{$item.name}}
+                    </ui-select-match>
+
+                    <ui-select-choices repeat="priority in (priorityList | filter: $select.search) track by priority.name">
+                        <span ng-bind="priority.name"></span>
+                    </ui-select-choices>
+                </ui-select>
+
+            </div>
+
+            <div class="col-sm-3">
+
+                <a ui-sref="chart"><b>Show Tasks On Charts</b></a>
+
+            </div>
+
+            <div class="col-sm-3 button_newTask">
+
+                <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Add New Task</button>
+
+            </div>
+        </div>
 
 
 
-                        <ui-select ng-model="selected.value">
-
-                            <ui-select-match placeholder="Select status...">
-                                <span ng-bind="$select.selected.name"></span>
-                            </ui-select-match>
-                            <ui-select-choices repeat="item in (itemArray | filter: $select.search) track by item.name">
-                                <span ng-bind="item.name"></span>
-                            </ui-select-choices>
-                        </ui-select>
-
-
-                    </div>
-
-                    <div class="col-sm-4">
-
-                        <ui-select  ng-model="selectedPriority.value">
-                            <ui-select-match placeholder="Select priority...">
-                                <span ng-bind="$select.selected.name"></span>
-                            </ui-select-match>
-                            <ui-select-choices repeat="priority in (priorityList | filter: $select.search) track by priority.id">
-                                <span ng-bind="priority.name"></span>
-                            </ui-select-choices>
-                        </ui-select>
-
-                    </div>
-                    <div class="col-sm-4 button_newTask">
-                        <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Add New Task</button>
-                    </div>
-                </div>
-            </div><br>
 
 
             <div class="container-fluid" >
                 <div class="row">
-                    <div class="col-sm-4 status" ng-repeat="task in tasks | filter:selected.value.name">
+                    <div class="col-sm-4 status {{task.priority}}" ng-repeat="task in dc.tasks">
                         <div class="row">
                             <div class="col-sm-8 text-left title_div">
+
                                 <h4>{{task.name}}</h4>
-                            </div>
-                            <div class="col-sm-4 checkbox_button_div">
 
-                                <a href="#" data-toggle="tooltip" title="Delete"><i class="fa fa-trash fa-2x titleTrash"></i></a>
-                                <a href="#" data-toggle="tooltip" title="CheckBox">
-                                    <i class="fa fa-check-square fa-2x" aria-hidden="true"></i></a>
+                            </div>
+                            <div class="col-sm-4 checkbox_button_div" >
+
+                                <a href="#" uib-tooltip="delete"  tooltip-placement="buttom" ng-hide="task.status=='COMPLETED' "  ng-click="dc.deleteTask(task.name)">
+                                    <i class="fa fa-trash fa-2x titleTrash"></i>
+                                </a>
+
+                                <!--<label><input ng-model="check" type="checkbox" data-toggle="tooltip" title="Make as complete" ng-change="dc.checkSelect(check,task.name)"></label>-->
+
+                                <a href="#"  ng-model="check" uib-tooltip="make as complete"  tooltip-placement="top" ng-click="dc.checkSelect(task.name)">
+                                    <i class="fa fa-square-o fa-2x "  ng-hide="task.status=='COMPLETED' " aria-hidden="true"></i>
+
+                                </a>
+                                <i class="fa fa-check-square-o fa-2x" ng-show="task.status=='COMPLETED' "aria-hidden="true"></i>
+
                             </div>
                         </div>
 
-                        <div class="col-sm-12  task_description_div">
 
+                        <div class="row">
+                            <div class="col-sm-12  task_description_div">
 
-                            <dl class="dl-horizontal">
-                                <dt ng-bind="'Description' | translate"></dt>
-                                <dd>{{task.description}}</dd>
-                                <dt ng-bind="'Status' | translate"></dt>
-                                <dd>{{task.status}}</dd>
-                                <dt ng-bind="'StartDate' | translate"></dt>
-                                <dd>{{task.start-date}}</dd>
-                                <dt ng-bind="'EndDate' | translate" ></dt>
-                                <dd>{{task.end-date}}</dd>
-                                <dt ng-bind="'Priority' | translate" ></dt>
-                                <dd>{{task.priority}}</dd>
+                                <dl class="dl-horizontal">
+                                    <dt ng-bind="'Description' | translate"></dt>
+                                    <dd>{{task.description}}</dd>
+                                    <dt ng-bind="'Status' | translate"></dt>
+                                    <dd>{{task.status}}</dd>
+                                    <dt ng-bind="'StartDate' | translate"></dt>
+                                    <dd>{{task.start-date}}</dd>
+                                    <dt ng-bind="'EndDate' | translate" ></dt>
+                                    <dd>{{task.end-date}}</dd>
+                                    <dt ng-bind="'Priority' | translate" ></dt>
+                                    <dd>{{task.priority}}</dd>
 
-                            </dl>
+                                </dl>
+                            </div>
+
                         </div>
+
                    </div>
                 </div>
             </div>
-        </div>
+
     </div>
 </div>
