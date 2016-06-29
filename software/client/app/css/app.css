@@ -2,20 +2,14 @@
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
-    background-color: lightgoldenrodyellow;
+    background-color: #B3D4FC;
     color: #337AB7;
-    border: solid;
-    border-color: black;
 
 }
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
     height:auto;
-    border: solid;
-    border-color: black;
-    border-top: hidden;
-    border-bottom: hidden;
 
 }
 
@@ -31,11 +25,9 @@ footer {
     height: 50px;
     /bottom: 0;
     width: 100%;
-    background-color: lightgoldenrodyellow;
+    background-color: #B3D4FC;
     color: #337AB7;
     padding: 20px;
-    border: solid;
-    border-color: black;
    /* position: absolute;
     //left: 0;
     //right: 0;
@@ -101,7 +93,10 @@ footer {
     margin-top: 30px;
     alignment: left;
 }
-
+.back_div{
+    padding-top: 10px;
+    padding-left: 1100px;
+}
 /*body {
     position: relative;
     overflow: hidden
@@ -152,17 +147,23 @@ html body .container-fluid.body-content {
 
 }
 .pieChartStyle{
-    padding-top: 50px;
-    height: 500px;
+    padding-top: 40px;
+    height: 300px;
     width: 640px;
     alignment: left;
 
 }
 .barChartStyle{
 
-    padding-top: 50px;
+    padding-top: 40px;
 
 }
 .dl-div{
     padding-left: 0px;
+}
+.statusChart_div{
+    padding-left: 200px;
+}
+.priorityChart_div{
+    padding-left: 200px;
 }

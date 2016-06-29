@@ -2,9 +2,8 @@
  * Created by semanticbits on 17/6/16.
  */
 angular.module('todoApp')
-
-
-    .config(function($stateProvider,$urlRouterProvider,$locationProvider,$translateProvider, $translateStaticFilesLoaderProvider){
+    .config(function($stateProvider,$urlRouterProvider,$locationProvider,$translateProvider,
+                     $translateStaticFilesLoaderProvider,ChartJsProvider){
 
         $urlRouterProvider.otherwise('/');
 

@@ -1,25 +1,26 @@
-
-
 <div class="container-fluid" >
+    <div class="row back_div">
+        <button type="button" class="btn btn-primary" onClick="history.go(-1);return true;">Back To Dashboard</button>
+    </div>
     <div class="row">
         <div class="col-sm-6 pieChartStyle">
-            <div>
-                <h1>Pie Chart</h1>
+            <div class="statusChart_div">
+                <h1>Status Chart</h1>
             </div>
 
-            <canvas id="pie" class="chart chart-pie"
-                    chart-data="ch.data" chart-labels="ch.labels" chart-legend="true">
+            <canvas id="pie" class="chart chart-pie" chart-data="ch.data" chart-labels="ch.labels" chart-legend="true">
             </canvas>
 
         </div>
         <div class="col-sm-6 barChartStyle">
 
-            <div>
-                <h1>Bar Chart</h1>
+            <div class="priorityChart_div">
+                <h1>Priority Chart</h1>
             </div>
 
             <canvas id="bar" class="chart chart-bar"
-                    chart-data="data" chart-labels="labels" chart-series="series" chart-legend="true">
+                    chart-data="ch.barData  " chart-labels="ch.barLabels" chart-colours="ch.colors"
+                    chart-series="ch.series" chart-legend="true">
             </canvas>
 
         </div>

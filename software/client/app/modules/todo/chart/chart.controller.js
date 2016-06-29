@@ -14,60 +14,59 @@
         var ch = this;
 
         ch.tasks=$rootScope.totalTasks;
-        ch.Chart = {};
-        ch.Chart.openCount=0;
-        ch.Chart.inprogressCount=0;
-        ch.Chart.invalidCount=0;
-        ch.Chart.completedCount=0;
-        ch.Chart.highPriorityCount=0;
-        ch.Chart.lowPriorityCount=0;
-        ch.Chart.mediumPriorityCount=0;
-
-
+        //pieChart variable for storing status count
+        ch.pieChart = {
+            openCount:0,
+            inprogressCount:0,
+            invalidCount:0,
+            completedCount:0
+        };
+        //bar chart variables for storing priority count
+        ch.barChart={
+            highPriorityCount:0,
+            lowPriorityCount:0,
+            mediumPriorityCount:0
+        };
+        //getting status counts
         angular.forEach(ch.tasks, function(task) {
             if(task.status==='OPENED'){
-                ch.Chart.openCount++;
+                ch.pieChart.openCount++;
             }
             else if(task.status==='INPROGRESS'){
-                ch.Chart.inprogressCount++;
+                ch.pieChart.inprogressCount++;
             }
             else if(task.status==='INVALID'){
-                ch.Chart.invalidCount++;
+                ch.pieChart.invalidCount++;
             }
             else if(task.status==='COMPLETED'){
-                ch.Chart.completedCount++;
+                ch.pieChart.completedCount++;
             }
 
         });
+        //getting priority counts
         angular.forEach(ch.tasks, function(task) {
             if(task.priority==='HIGH'){
-                ch.Chart.highPriorityCount++;
+                ch.barChart.highPriorityCount++;
             }
             else if(task.priority==='LOW'){
-                ch.Chart.lowPriorityCount++;
+                ch.barChart.lowPriorityCount++;
             }
             else if(task.priority==='MEDIUM'){
-                ch.Chart.mediumPriorityCount++;
+                ch.barChart.mediumPriorityCount++;
             }
         });
-        console.log(ch.Chart.openCount);
-        console.log(ch.Chart.inprogressCount);
-        console.log(ch.Chart.invalidCount);
-        console.log(ch.Chart);
-        console.log( ch.Chart.mediumPriorityCount);
-        console.log(ch.Chart.highPriorityCount);
-
-
+        //setting status name and status count for pie chart
         ch.labels = ["Opened Tasks", "Inprogress Tasks", "Invalid Tasks","Completed Tasks"];
-        ch.data = [ch.Chart.openCount, ch.Chart.inprogressCount,ch.Chart.invalidCount,ch.Chart.completedCount];
+        ch.data = [ch.pieChart.openCount, ch.pieChart.inprogressCount,ch.pieChart.invalidCount,ch.pieChart.completedCount];
+        //setting priority name and priority count for bar chart
+        ch.barLabels = [];
+        ch.series = ['High Priority Task', 'Medium Priority Tasks','Low Priority Tasks'];
 
-        $scope.labels = [];
-        $scope.series = ['High Priority Task', 'Medium Priority Tasks','Low Priority Tasks'];
-
-        $scope.data = [
-            [ch.Chart.highPriorityCount],[ch.Chart.mediumPriorityCount], [ch.Chart.lowPriorityCount]
+        ch.barData = [
+            [ch.barChart.highPriorityCount],[ch.barChart.mediumPriorityCount], [ch.barChart.lowPriorityCount]
 
         ];
+        ch.colors=['#ff6666','#80d4ff','#9fdfbf'];
 
     }
 
