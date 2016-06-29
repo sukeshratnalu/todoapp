@@ -59,19 +59,20 @@
                                 <h4>{{task.name}}</h4>
 
                             </div>
-                            <div class="col-sm-4 checkbox_button_div" >
+                            <div class="col-sm-2 delete_div" >
 
                                 <a href="#" uib-tooltip="delete"  tooltip-placement="buttom" ng-hide="task.status=='COMPLETED' "  ng-click="dc.deleteTask(task.name)">
                                     <i class="fa fa-trash fa-2x titleTrash"></i>
                                 </a>
-
-
-
+                            </div>
+                            <div class="col-sm-2 ckbox_div">
                                 <a href="#"  ng-model="check" uib-tooltip="make as complete"  tooltip-placement="top" ng-click="dc.checkSelect(task.name)">
                                     <i class="fa fa-square-o fa-2x "  ng-hide="task.status=='COMPLETED' " aria-hidden="true"></i>
 
                                 </a>
-                                <i class="fa fa-check-square-o fa-2x" ng-show="task.status=='COMPLETED' "aria-hidden="true"></i>
+                               <a href="#">
+                                   <i class="fa fa-check-square-o fa-2x" ng-show="task.status=='COMPLETED' "aria-hidden="true"></i>
+                               </a>
 
                             </div>
                         </div>
@@ -79,20 +80,13 @@
 
                         <div class="row">
                             <div class="col-sm-12  task_description_div">
+                                <b><label ng-bind="'Description' | translate"></label> :</b>{{task.description}}<br>
+                                <b><label ng-bind="'Status' | translate"></label> :</b>{{task.status}}<br>
+                                <b><label ng-bind="'StartDate' | translate"></label> :</b>{{task.start-date}}<br>
+                                <b><label ng-bind="'EndDate' | translate"></label> :</b>{{task.end-date}}<br>
+                                <b><label ng-bind="'Priority' | translate"></label> :</b>{{task.priority}}
 
-                                <dl class="dl-horizontal">
-                                    <dt ng-bind="'Description' | translate"></dt>
-                                    <dd>{{task.description}}</dd>
-                                    <dt ng-bind="'Status' | translate"></dt>
-                                    <dd>{{task.status}}</dd>
-                                    <dt ng-bind="'StartDate' | translate"></dt>
-                                    <dd>{{task.start-date}}</dd>
-                                    <dt ng-bind="'EndDate' | translate" ></dt>
-                                    <dd>{{task.end-date}}</dd>
-                                    <dt ng-bind="'Priority' | translate" ></dt>
-                                    <dd>{{task.priority}}</dd>
 
-                                </dl>
                             </div>
 
                         </div>

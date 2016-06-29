@@ -14,36 +14,60 @@
         var ch = this;
 
         ch.tasks=$rootScope.totalTasks;
-        ch.pieChart = {};
-        ch.pieChart.openCount=0;
-        ch.pieChart.inprogressCount=0;
-        ch.pieChart.invalidCount=0;
-        ch.pieChart.completedCount=0;
+        ch.Chart = {};
+        ch.Chart.openCount=0;
+        ch.Chart.inprogressCount=0;
+        ch.Chart.invalidCount=0;
+        ch.Chart.completedCount=0;
+        ch.Chart.highPriorityCount=0;
+        ch.Chart.lowPriorityCount=0;
+        ch.Chart.mediumPriorityCount=0;
 
 
         angular.forEach(ch.tasks, function(task) {
             if(task.status==='OPENED'){
-                ch.pieChart.openCount++;
+                ch.Chart.openCount++;
             }
             else if(task.status==='INPROGRESS'){
-                ch.pieChart.inprogressCount++;
+                ch.Chart.inprogressCount++;
             }
             else if(task.status==='INVALID'){
-                ch.pieChart.invalidCount++;
+                ch.Chart.invalidCount++;
             }
             else if(task.status==='COMPLETED'){
-                ch.pieChart.completedCount++;
+                ch.Chart.completedCount++;
+            }
+
+        });
+        angular.forEach(ch.tasks, function(task) {
+            if(task.priority==='HIGH'){
+                ch.Chart.highPriorityCount++;
+            }
+            else if(task.priority==='LOW'){
+                ch.Chart.lowPriorityCount++;
+            }
+            else if(task.priority==='MEDIUM'){
+                ch.Chart.mediumPriorityCount++;
             }
         });
-        console.log(ch.pieChart.openCount);
-        console.log(ch.pieChart.inprogressCount);
-        console.log(ch.pieChart.invalidCount);
-        console.log(ch.pieChart);
+        console.log(ch.Chart.openCount);
+        console.log(ch.Chart.inprogressCount);
+        console.log(ch.Chart.invalidCount);
+        console.log(ch.Chart);
+        console.log( ch.Chart.mediumPriorityCount);
+        console.log(ch.Chart.highPriorityCount);
 
 
         ch.labels = ["Opened Tasks", "Inprogress Tasks", "Invalid Tasks","Completed Tasks"];
-        ch.data = [ch.pieChart.openCount, ch.pieChart.inprogressCount,ch.pieChart.invalidCount,ch.pieChart.completedCount];
+        ch.data = [ch.Chart.openCount, ch.Chart.inprogressCount,ch.Chart.invalidCount,ch.Chart.completedCount];
 
+        $scope.labels = [];
+        $scope.series = ['High Priority Task', 'Medium Priority Tasks','Low Priority Tasks'];
+
+        $scope.data = [
+            [ch.Chart.highPriorityCount],[ch.Chart.mediumPriorityCount], [ch.Chart.lowPriorityCount]
+
+        ];
 
     }
 

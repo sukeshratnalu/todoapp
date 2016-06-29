@@ -1,10 +1,28 @@
-<div class="chartStyle">
 
-    <canvas id="pie" class="chart chart-pie"
 
-            chart-data="ch.data" chart-labels="ch.labels" chart-legend="true" chart-options="options">
-    </canvas>
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-sm-6 pieChartStyle">
+            <div>
+                <h1>Pie Chart</h1>
+            </div>
+
+            <canvas id="pie" class="chart chart-pie"
+                    chart-data="ch.data" chart-labels="ch.labels" chart-legend="true">
+            </canvas>
+
+        </div>
+        <div class="col-sm-6 barChartStyle">
+
+            <div>
+                <h1>Bar Chart</h1>
+            </div>
+
+            <canvas id="bar" class="chart chart-bar"
+                    chart-data="data" chart-labels="labels" chart-series="series" chart-legend="true">
+            </canvas>
+
+        </div>
+    </div>
 
 </div>
-
-

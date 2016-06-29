@@ -125,13 +125,13 @@ html body .container-fluid.body-content {
     overflow: auto;
 }
 */
-.checkbox_button_div {
+.delete_div {
     padding-top: 10px;
     padding-left: 20px;
 }
-.task_description_div {
-    padding: 0px;
-    margin-right: 50px;
+.ckbox_div{
+    padding-top: 12px;
+    padding-left: 10px;
 }
 
 .HIGH{
@@ -151,10 +151,18 @@ html body .container-fluid.body-content {
     background-color: #9fdfbf;
 
 }
-.chartStyle{
+.pieChartStyle{
     padding-top: 50px;
     height: 500px;
-    width: 700px;
+    width: 640px;
     alignment: left;
-    margin-left: 300px;
+
+}
+.barChartStyle{
+
+    padding-top: 50px;
+
+}
+.dl-div{
+    padding-left: 0px;
 }
