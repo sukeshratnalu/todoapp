@@ -36,7 +36,7 @@
             <div class="form-group">
                 <label class="control-label col-sm-4">Start Date:</label>
                 <div class="col-sm-8">
-                    <!--<md-datepicker ng-model="taskForEdit.startDate" md-placeholder="Enter date"></md-datepicker>-->
+
                     <datepicker date-format="dd-MM-yyyy">
                     <input type='text' name='startDate' ng-model="taskForEdit.startDate" required class="form-control" placeholder="Start Date">
                     </datepicker>
@@ -49,10 +49,7 @@
                     <datepicker date-format="dd-MM-yyyy">
                         <input type="text" class="form-control" name="endDate" ng-model="taskForEdit.endDate" placeholder="end date" required>
                     </datepicker>
-                    <!--<md-datepicker ng-model="taskForEdit.endDate" md-placeholder="Enter date"></md-datepicker>-->
-                     <!-- <date-picker>
-                        <input type="text" class="form-control" name="endDate" ng-model="taskForEdit.endDate" placeholder="end date" required>
-                      </date-picker>-->
+
                     <span ng-show="editTasks.endDate.$error.required && editTasks.endDate.$invalid" style="color: red">Please enter end date</span>
                 </div>
             </div>
