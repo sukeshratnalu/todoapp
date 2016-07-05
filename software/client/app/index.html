@@ -5,7 +5,6 @@
 <!--[if gt IE 8]><!--> <html lang="en" ng-app="todoApp" class="no-js"> <!--<![endif]-->
 
 <head>
-
   <base href="/"/>
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
@@ -16,25 +15,19 @@
   <link rel="stylesheet" href="bower_components/angular-ui-select/dist/select.min.css">
   <link rel="stylesheet" href="bower_components/angular-bootstrap/ui-bootstrap-csp.css">
   <link rel="stylesheet" href="bower_components/angular-chart.js/dist/angular-chart.css">
-
+  <link rel="stylesheet" href="bower_components/angularjs-datepicker/src/css/angular-datepicker.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-
-
-
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<meta charset="UTF-8">-->
+   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
   <title>DashBoard Page</title>
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="50" >
-
-<nav class=" navbar navbar-default">
+<body>
+<nav class=" navbar navbar-default Header">
   <div class="container-fluid">
     <div class="navbar-header">
       <h1 class="heading"><b>TODOApp</b></h1>
-      <p class="managecontent">manage your task</p>
+      <p class="managecontent" ng-bind="'Manage_Your_Tasks' | translate">manage your task</p>
     </div>
-
     <div class="collapse navbar-collapse" id="myNavbar" ng-controller="appController as ac">
       <div class="list-inline navbar-right">
         <label><a ng-click="ac.changeLanguage('en')" ng-bind="'English' | translate"></a></label> |
@@ -43,31 +36,34 @@
     </div>
   </div>
 </nav>
-
 <div ui-view></div>
-
 <footer class="container-fluid text-right">
   <p>Powered by SemanticBits</p>
 </footer>
-
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
 <script src="bower_components/bootstrap-css/js/bootstrap.min.js"></script>
 <script src="components/version/version.js"></script>
 <script src="components/version/version-directive.js"></script>
 <script src="components/version/interpolate-filter.js"></script>
+<script src="bower_components/angular-mocks/angular-mocks.js"></script>
 <script src="bower_components/angular-translate/angular-translate.min.js"></script>
 <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
 <script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.min.js"></script>
 <script src="bower_components/i18n/i18n.js"></script>
 <script src="bower_components/angular-ui-select/dist/select.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-sanitize.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/es5-shim/2.2.0/es5-shim.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 <script src="bower_components/Chart.js/Chart.js"></script>
 <script src="bower_components/angular-chart.js/angular-chart.js"></script>
+<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+<script src="bower_components/angular-messages/angular-messages.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angularjs-datepicker/src/js/angular-datepicker.js"></script>
+
+
 <script src="modules/todo/app.modules.js"></script>
 <script src="modules/todo/app.config.js"></script>
 <script src="modules/todo/app.run.js"></script>
@@ -75,13 +71,7 @@
 <script src="modules/todo/commons/app.controller.js"></script>
 <script src="modules/todo/dashboard/dashboard.factory.js"></script>
 <script src="modules/todo/chart/chart.controller.js"></script>
-<script src="modules/todo/dashboard/dashboard.directive.js"></script>
-
-
-
-
-
-
-
+<script src="modules/todo/dashboard/task.directive.js"></script>
+<script src="modules/todo/dashboard/filter.directive.js"></script>
 </body>
 </html>

@@ -2,9 +2,16 @@
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
-    background-color: #B3D4FC;
-    color: #337AB7;
+    /*background-color: #B3D4FC;
+    color: #337AB7;*/
 
+}
+
+
+.Header{
+    background-color: #B3D4FC;
+    padding-top: 10px;
+    color:#337AB7;
 }
 
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -47,7 +54,7 @@ footer {
     font-size: 350%;
 }
 .managecontent{
-    padding-left: 45%;
+    padding-left: 120px;
 }
 #myNavbar{
     //padding-right: 50%;
@@ -70,6 +77,7 @@ footer {
 .body_status{
     height: 180px;
     margin: 5px;
+    color: #337AB7;
 
 
 }
@@ -87,46 +95,31 @@ footer {
     border-top: none;
     border-left: none;
     border-right: none;
+    border-color: black;
+    color: #337AB7;
    // margin-left: 10px;
 }
 .task_description_div{
     margin-top: 30px;
     alignment: left;
+    color: #337AB7;
 }
 .back_div{
     padding-top: 10px;
     padding-left: 1100px;
 }
-/*body {
-    position: relative;
-    overflow: hidden
-}*/
-/*
-html {
-    height: 100%;
-}
-html body {
-    height: 100%;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-html body .container-fluid.body-content {
-    //position: absolute;
-    top: 50px;
-    bottom: 30px;
-    right: 0;
-    left: 0;
-    overflow: auto;
-}
-*/
+
 .delete_div {
     padding-top: 10px;
     padding-left: 20px;
 }
-.ckbox_div{
+.checkbox_div{
     padding-top: 12px;
     padding-left: 10px;
+}
+.edit_div{
+    padding-top: 12px;
+    padding-left: 40px;
 }
 
 .HIGH{
@@ -166,4 +159,16 @@ html body .container-fluid.body-content {
 }
 .priorityChart_div{
     padding-left: 200px;
+}
+.chatlink{
+    padding-left: 30px;
+}
+.edit_modal{
+    color: #337AB7;
+}
+.delete_modal{
+    color: #337AB7;
+}
+.makeAsComplete_modal{
+    color: #337AB7;
 }

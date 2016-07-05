@@ -1,33 +1,15 @@
 <div class=" container-fluid">
-    <div class="row content">
+    <div class="row">
         <div class="row text-center body_heading">
-            <div class="col-sm-4 ">
-                <ui-select ng-model="dc.selectedStatus.value" ng-change="dc.filterTask()">
-                    <ui-select-match allow-clear="true" placeholder="Select status...">
-                        <span ng-bind="$select.selected.name"></span>
-                    </ui-select-match>
-                    <ui-select-choices repeat="item in (dc.statusList | filter: $select.search) track by item.name">
-                        <span ng-bind="item.name"></span>
-                    </ui-select-choices>
-                </ui-select>
+            <filter-tasks tasks="dc.tasks" status-list="dc.statusList" priorities-list="dc.prioritiesList"></filter-tasks>
+            <div class="col-sm-2 chatlink">
+                <b><a ui-sref="chart" ng-bind="'Show_Task_On_Chart' | translate"></a></b>
             </div>
-            <div class="col-sm-4">
-                <ui-select  multiple ng-model="dc.selectedPriorites" theme="bootstrap" ng-change="dc.filterTask()">
-                    <ui-select-match placeholder="Select priority...">
-                        {{$item.name}}
-                    </ui-select-match>
-                    <ui-select-choices repeat="priority in (dc.priorityList | filter: $select.search) track by priority.name">
-                        <span ng-bind="priority.name"></span>
-                    </ui-select-choices>
-                </ui-select>
-            </div>
-            <div class="col-sm-4 ">
-                <a ui-sref="chart"><b>Show Tasks On Charts</b></a>
-                <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus-sign"></span> Add New Task</button>
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-primary" ng-bind="'Add_New_task' | translate"><span class="glyphicon glyphicon-plus-sign"></span></button>
             </div>
         </div>
-        <div class="container-fluid" >
-            <task-description tasks="dc.tasks"></task-description>
-        </div>
+        <task-description tasks="dc.tasks"></task-description>
+
     </div>
 </div>

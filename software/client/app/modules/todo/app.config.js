@@ -15,8 +15,8 @@ angular.module('todoApp')
                 controllerAs: 'dc'
             }).
         state('chart', {
-            url: "/chart",
-            templateUrl: "partials/chart.html",
+            url:"/chart",
+            templateUrl: "/partials/chart.html",
             controller: 'chartController',
             controllerAs: 'ch'
         });

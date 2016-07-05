@@ -3,18 +3,23 @@
 <div class="row">
     <div class="col-sm-4 status {{task.priority}}" ng-repeat="task in tasks">
         <div class="row">
-            <div class="col-sm-8 text-left title_div">
+            <div class="col-sm-6 text-left title_div">
 
                 <h4>{{task.name}}</h4>
 
             </div>
-            <div class="col-sm-2 delete_div" >
-
-                <a href="#" uib-tooltip="delete"   ng-hide="task.status=='COMPLETED' "  ng-click="deleteTasks(task.name)">
-                    <i class="fa fa-trash fa-2x titleTrash"></i>
+            <div class="col-sm-2 edit_div">
+                <a  href="#" ng-click="editTask(task.id)" >
+                    <i class="fa fa-pencil fa-2x" uib-tooltip="edit task" aria-hidden="true"></i>
                 </a>
             </div>
-            <div class="col-sm-2 ckbox_div">
+            <div class="col-sm-2 delete_div" >
+
+                <a href="#"   ng-hide="task.status=='COMPLETED' "  ng-click="deleteTasks(task.name)">
+                    <i class="fa fa-trash fa-2x titleTrash" uib-tooltip="delete" ></i>
+                </a>
+            </div>
+            <div class="col-sm-2 checkbox_div">
                 <a href="#">
                     <i class="fa fa-square-o fa-2x " uib-tooltip="mark as complete" ng-hide="task.status=='COMPLETED' " ng-click="markAsCompleteTask(task.name)"></i>
 

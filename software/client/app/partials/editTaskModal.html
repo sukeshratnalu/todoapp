@@ -1,0 +1,79 @@
+<div ng-controller="dashboardController as dc" class="edit_modal">
+
+    <div class="modal-header">
+        <h3 class="modal-title">Edit Task</h3>
+    </div>
+    <form class="form-horizontal" name="editTasks" ng-submit="ok()">
+        <div class="modal-body">
+            <div class="form-group">
+                <label class="control-label col-sm-4">Task Name:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="taskName" placeholder="Enter task name" ng-model="taskForEdit.taskName" required>
+                    <span ng-show="editTasks.taskName.$error.required && editTasks.taskName.$invalid" style="color: red">Please enter the task name</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" >Task Description:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" ng-model="taskForEdit.description" name="description" placeholder="Enter task description" required>
+                    <span ng-show="editTasks.description.$error.required && editTasks.description.$invalid" style="color: red">Please enter the Description</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4">Status:</label>
+                <div class="col-sm-8">
+                    <ui-select ng-model="taskForEdit.status" name="status" required>
+                        <ui-select-match allow-clear="true" placeholder="Select status...">
+                            <span ng-bind="$select.selected.value"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="item in (dc.statusList | filter: $select.search) track by item.name">
+                            <span ng-bind="item.name"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                    <span ng-show="editTasks.status.$error.required && editTasks.status.$invalid" style="color: red">Please select status</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4">Start Date:</label>
+                <div class="col-sm-8">
+                    <!--<md-datepicker ng-model="taskForEdit.startDate" md-placeholder="Enter date"></md-datepicker>-->
+                    <datepicker date-format="dd-MM-yyyy">
+                    <input type='text' name='startDate' ng-model="taskForEdit.startDate" required class="form-control" placeholder="Start Date">
+                    </datepicker>
+                    <span ng-show="editTasks.startDate.$error.required && editTasks.startDate.$invalid" style="color: red">Please enter start date</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4">End Date:</label>
+                <div class="col-sm-8">
+                    <datepicker date-format="dd-MM-yyyy">
+                        <input type="text" class="form-control" name="endDate" ng-model="taskForEdit.endDate" placeholder="end date" required>
+                    </datepicker>
+                    <!--<md-datepicker ng-model="taskForEdit.endDate" md-placeholder="Enter date"></md-datepicker>-->
+                     <!-- <date-picker>
+                        <input type="text" class="form-control" name="endDate" ng-model="taskForEdit.endDate" placeholder="end date" required>
+                      </date-picker>-->
+                    <span ng-show="editTasks.endDate.$error.required && editTasks.endDate.$invalid" style="color: red">Please enter end date</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4">Priority:</label>
+                <div class="col-sm-8">
+                    <ui-select ng-model="taskForEdit.priority" name="priority" required>
+                        <ui-select-match allow-clear="true" placeholder="Select priority...">
+                            <span ng-bind="$select.selected.value"></span>
+                        </ui-select-match>
+                        <ui-select-choices repeat="item in (dc.prioritiesList | filter: $select.search) track by item.name">
+                            <span ng-bind="item.name"></span>
+                        </ui-select-choices>
+                    </ui-select>
+                    <span ng-show="editTasks.priority.$error.required && editTasks.priority.$invalid" style="color: red">Please select priority</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </form>
+</div>

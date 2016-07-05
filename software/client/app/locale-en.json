@@ -6,7 +6,8 @@
   "Priority":"Priority",
   "English":"English",
   "Spanish":"Spanish",
-  "Manage_Your_Tasks":"Manage Your Tasks",
-  "Add_New_task":"Add New Task"
+  "Manage_Your_Tasks":"manage your task",
+  "Add_New_task":"Add New Task",
+  "Show_Task_On_Chart":"Show Tasks On Chart"
 
 }

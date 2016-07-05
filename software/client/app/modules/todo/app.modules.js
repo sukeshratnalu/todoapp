@@ -3,6 +3,6 @@
  */
 (function(){
     angular.module('todoApp',
-        ['ui.router','pascalprecht.translate','ngSanitize', 'ui.select','ui.bootstrap','ui.bootstrap.tpls','chart.js']);
+        ['ui.router','pascalprecht.translate','ngSanitize', 'ui.select','ui.bootstrap','ui.bootstrap.tpls','chart.js','720kb.datepicker']);
 }());
 
