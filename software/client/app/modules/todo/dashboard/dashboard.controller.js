@@ -24,7 +24,7 @@
         ];
 
 
-        //function for gettin tasks from service
+        //function for getting tasks from service
         dc.getTasks=function(){
             //getting tasks from services
             var promise = dashboardService.readTasks();
@@ -40,9 +40,9 @@
         };
         dc.getTasks();
 
-        $scope.z = 0;
 
-        $scope.sum = function(a,b) {
+
+        dc.sum = function(a,b) {
 
             return a+b;
         };

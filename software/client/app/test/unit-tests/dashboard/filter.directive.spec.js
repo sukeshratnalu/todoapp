@@ -12,7 +12,7 @@ describe('filterTasks', function() {
     // so they are available to all tests in this describe block
     beforeEach(inject(function($compile, _$rootScope_){
         // The injector unwraps the underscores (_) from around the parameter names when matching
-        $compile = _$compile_;
+        $compile = $compile;
         $rootScope = _$rootScope_;
     }));
 

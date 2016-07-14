@@ -1,27 +1,57 @@
 /**
  * Created by semanticbits on 2/7/16.
  */
-describe('taskDescription', function() {
-    var $compile,
-        $rootScope;
+(function(){
+    describe('test task directive',function(){
+        var $compile,
+            $scope,
+            rootScope,
+            $templateCache;
 
-    // Load the todoApp module, which contains the directive
-    beforeEach(module('todoApp'));
+        var task=[
+            {
+                "name": "Task 1",
+                "description": "Task 1 description",
+                "startdate": "01-08-2016",
+                "enddate": "01-10-2016",
+                "status": "OPENED",
+                "priority": "LOW"
+            },
+            {
+                "name"  : "Task 2",
+                "description"   : "Task 2 description",
+                "startdate" : "01-08-2016",
+                "enddate"   : "01-10-2016",
+                "status"    : "OPENED",
+                "priority"  : "HIGH"
+            }
+        ];
 
-    // Store references to $rootScope and $compile
-    // so they are available to all tests in this describe block
-    beforeEach(inject(function(_$compile_, _$rootScope_){
-        // The injector unwraps the underscores (_) from around the parameter names when matching
-        $compile = _$compile_;
-        $rootScope = _$rootScope_;
-    }));
+        beforeEach(module('todoApp'));
 
-    it('Replaces the element with the appropriate content', function() {
-        // Compile a piece of HTML containing the directive
-        var element = $compile("<task-description></task-description>")($rootScope);
-        // fire all the watches, so the scope expression {{1 + 1}} will be evaluated
-        $rootScope.$digest();
-        // Check that the compiled element contains the templated content
-        expect(element.html()).toContain("");
+        beforeEach(inject(function($rootScope, _$compile_, $httpBackend, _$templateCache_){
+
+            $compile = _$compile_;
+            rootScope = $rootScope;
+            $scope = $rootScope.$new();
+            $templateCache = _$templateCache_;
+
+            $templateCache.put('partials/tasksDetails.html');
+            $httpBackend.whenGET('partials/tasksDetails.html').respond($templateCache.get('partials/tasksDetails.html'));
+
+        }));
+
+        function directiveElement(){
+            var element = $compile('<task-description tasks="task"></task-description>')($scope);
+            $scope.$digest();
+            return element;
+        }
+
+        it('Testing dashboard directive', inject(function ($httpBackend, $location) {
+            var element = directiveElement();
+            $scope.$digest();
+            expect(element[0].outerHTML).toEqual('<task-description class="ng-scope" tasks="t"></task-description>');
+        }));
+
     });
-});
+}());
